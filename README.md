@@ -31,7 +31,7 @@
 
 ## Features
 
-* **Easy channel integration** — Want to start sending `emails` | `SMS` | `pushes` | `webpushes` | `slack`? Do so in no time!
+* **Easy channel integration** — Want to start sending `emails` | `SMS` | `webpushes` | `slack`? Do so in no time!
 
 * **Unique documentation** — Don't look everywhere for the parameters you need to pass, just do it once. **Switching provider becomes a no-brainer**.
 
@@ -113,7 +113,7 @@ new NotifmeSdk({
 
 | Option name | Required | Type | Description |
 | --- | --- | --- | --- |
-| `channels` | `false` | `Object` | Define `providers` (`Array`) and `multiProviderStrategy` (`string`) for each channel (email, sms, push, webpush, slack).<br><br>See all details below: [2. Providers](#2-providers). |
+| `channels` | `false` | `Object` | Define `providers` (`Array`) and `multiProviderStrategy` (`string`) for each channel (email, sms, webpush, slack).<br><br>See all details below: [2. Providers](#2-providers). |
 | `useNotificationCatcher` | `false` | `boolean` | If true, all your notifications are sent to the catcher running on localhost:1025 (channels option will be completely ignored!) |
 
 #### Complete examples
@@ -566,120 +566,6 @@ new NotifmeSdk({
 <br>
 
 See all options: [Voice provider options](https://github.com/notifme/notifme-sdk/blob/master/src/models/provider-voice.js)
-
-#### Push providers
-
-<details><summary>Logger <i>(for development)</i></summary><p>
-
-```javascript
-new NotifmeSdk({
-  channels: {
-    push: {
-      providers: [{
-        type: 'logger'
-      }]
-    }
-  }
-})
-```
-
-</p></details>
-<details><summary>APN (Apple Push Notification)</summary><p>
-
-```javascript
-new NotifmeSdk({
-  channels: {
-    push: {
-      providers: [{
-        type: 'apn',
-        token: {
-          key: './certs/key.p8',
-          keyId: 'xxxxx',
-          teamId: 'xxxxx'
-        }
-      }]
-    }
-  }
-})
-```
-
-</p></details>
-<details><summary>FCM (Firebase Cloud Messaging, previously called GCM, Google Cloud Messaging)</summary><p>
-
-```javascript
-new NotifmeSdk({
-  channels: {
-    push: {
-      providers: [{
-        type: 'fcm',
-        id: 'xxxxx'
-      }]
-    }
-  }
-})
-```
-
-</p></details>
-<details><summary>WNS (Windows Push Notification)</summary><p>
-
-```javascript
-new NotifmeSdk({
-  channels: {
-    push: {
-      providers: [{
-        type: 'wns',
-        clientId: 'xxxxx',
-        clientSecret: 'xxxxx',
-        notificationMethod: 'sendTileSquareBlock'
-      }]
-    }
-  }
-})
-```
-
-</p></details>
-<details><summary>ADM (Amazon Device Messaging)</summary><p>
-
-```javascript
-new NotifmeSdk({
-  channels: {
-    push: {
-      providers: [{
-        type: 'adm',
-        clientId: 'xxxxx',
-        clientSecret: 'xxxxx'
-      }]
-    }
-  }
-})
-```
-
-</p></details>
-<details><summary>Custom <i>(define your own)</i></summary><p>
-
-```javascript
-new NotifmeSdk({
-  channels: {
-    push: {
-      providers: [{
-        type: 'custom',
-        id: 'my-custom-push-provider...',
-        send: async (request) => {
-          // Send push
-          return 'id...'
-        }
-      }]
-    }
-  }
-})
-```
-
-`request` being of [the following type](https://github.com/notifme/notifme-sdk/blob/master/src/models/notification-request.js#L33-L74).
-
-</p></details>
-<br>
-
-See all options: [Push provider options](https://github.com/notifme/notifme-sdk/blob/master/src/models/provider-push.js)
 
 #### Webpush providers
 

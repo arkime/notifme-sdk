@@ -1,7 +1,7 @@
 {
   "name": "arkime-notifme-sdk",
-  "version": "1.11.1",
-  "description": "Unified notification SDK (emails, SMS, pushes, webpushes...) for Node.js",
+  "version": "1.11.2",
+  "description": "Unified notification SDK (emails, SMS, webpushes...) for Node.js",
   "main": "lib/index.js",
   "repository": "https://github.com/arkime/notifme-sdk",
   "author": "Notif.me",
@@ -25,7 +25,6 @@
     "form-data": "4.0.0",
     "https-proxy-agent": "5.0.0",
     "node-fetch": "2.6.7",
-    "node-pushnotifications": "2.0.3",
     "nodemailer": "6.6.2",
     "web-push": "3.4.5",
     "winston": "3.3.3"
@@ -68,7 +67,6 @@
     ],
     "collectCoverageFrom": [
       "**/src/**/*.js",
-      "!**/src/providers/push/**",
       "!**/src/util/**"
     ],
     "coverageThreshold": {

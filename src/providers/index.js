@@ -1,6 +1,5 @@
 /* @flow */
 import emailFactory from './email'
-import pushFactory from './push'
 import smsFactory from './sms'
 import voiceFactory from './voice'
 import webpushFactory from './webpush'
@@ -30,9 +29,6 @@ export default function factory (channels: ChannelOptionsType): ProvidersType {
 
         case 'voice':
           return voiceFactory(config)
-
-        case 'push':
-          return pushFactory(config)
 
         case 'webpush':
           return webpushFactory(config)
