@@ -1,6 +1,6 @@
 {
   "name": "arkime-notifme-sdk",
-  "version": "1.11.3",
+  "version": "1.11.4",
   "description": "Unified notification SDK (emails, SMS, webpushes...) for Node.js",
   "main": "lib/index.js",
   "repository": "https://github.com/arkime/notifme-sdk",
