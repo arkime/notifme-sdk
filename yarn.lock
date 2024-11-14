@@ -4757,10 +4757,10 @@ nodemailer-shared@^1.1.0:
   dependencies:
     nodemailer-fetch "1.6.0"
 
-nodemailer@6.6.2:
-  version "6.6.2"
-  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.6.2.tgz#e184c9ed5bee245a3e0bcabc7255866385757114"
-  integrity sha512-YSzu7TLbI+bsjCis/TZlAXBoM4y93HhlIgo0P5oiA2ua9Z4k+E2Fod//ybIzdJxOlXGRcHIh/WaeCBehvxZb/Q==
+nodemailer@6.9.9:
+  version "6.9.9"
+  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.9.9.tgz#4549bfbf710cc6addec5064dd0f19874d24248d9"
+  integrity sha512-dexTll8zqQoVJEZPwQAKzxxtFn0qTnjdQTchoU6Re9BUUGBJiOy3YMn/0ShTW6J5M0dfQ1NeDeRTTl4oIWgQMA==
 
 nodemon@2.0.4:
   version "2.0.4"
@@ -6323,10 +6323,10 @@ walker@^1.0.8:
   dependencies:
     makeerror "1.0.12"
 
-web-push@3.4.5:
-  version "3.4.5"
-  resolved "https://registry.yarnpkg.com/web-push/-/web-push-3.4.5.tgz#f94074ff150538872c7183e4d8881c8305920cf1"
-  integrity sha512-2njbTqZ6Q7ZqqK14YpK1GGmaZs3NmuGYF5b7abCXulUIWFSlSYcZ3NBJQRFcMiQDceD7vQknb8FUuvI1F7Qe/g==
+web-push@3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/web-push/-/web-push-3.5.0.tgz#4576533746052eda3bd50414b54a1b0a21eeaeae"
+  integrity sha512-JC0V9hzKTqlDYJ+LTZUXtW7B175qwwaqzbbMSWDxHWxZvd3xY0C2rcotMGDavub2nAAFw+sXTsqR65/KY2A5AQ==
   dependencies:
     asn1.js "^5.3.0"
     http_ece "1.1.0"
