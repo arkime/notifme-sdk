@@ -21,7 +21,7 @@
     "testonly": "jest"
   },
   "dependencies": {
-    "form-data": "4.0.0",
+    "form-data": "4.0.4",
     "https-proxy-agent": "5.0.0",
     "node-fetch": "2.6.7",
     "nodemailer": "^6.9.9",
