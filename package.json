@@ -84,5 +84,8 @@
     "ignore": [
       "flow-bin"
     ]
+  },
+  "resolutions": {
+    "jws": "^4.0.1"
   }
 }
