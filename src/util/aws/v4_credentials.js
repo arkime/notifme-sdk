@@ -4,22 +4,22 @@ import { hmac } from '../crypto'
 /**
  * @api private
  */
-var cachedSecret = {}
+let cachedSecret = {}
 
 /**
  * @api private
  */
-var cacheQueue = []
+let cacheQueue = []
 
 /**
  * @api private
  */
-var maxCacheEntries = 50
+const maxCacheEntries = 50
 
 /**
  * @api private
  */
-var v4Identifier = 'aws4_request'
+const v4Identifier = 'aws4_request'
 
 export default {
   /**
@@ -56,22 +56,22 @@ export default {
     service,
     shouldCache
   ) {
-    var credsIdentifier = hmac(credentials.secretAccessKey, credentials.accessKeyId, 'base64')
-    var cacheKey = [credsIdentifier, date, region, service].join('_')
+    const credsIdentifier = hmac(credentials.secretAccessKey, credentials.accessKeyId, 'base64')
+    const cacheKey = [credsIdentifier, date, region, service].join('_')
     shouldCache = shouldCache !== false
     if (shouldCache && (cacheKey in cachedSecret)) {
       return cachedSecret[cacheKey]
     }
 
-    var kDate = hmac(
+    const kDate = hmac(
       'AWS4' + credentials.secretAccessKey,
       date,
       'buffer'
     )
-    var kRegion = hmac(kDate, region, 'buffer')
-    var kService = hmac(kRegion, service, 'buffer')
+    const kRegion = hmac(kDate, region, 'buffer')
+    const kService = hmac(kRegion, service, 'buffer')
 
-    var signingKey = hmac(kService, v4Identifier, 'buffer')
+    const signingKey = hmac(kService, v4Identifier, 'buffer')
     if (shouldCache) {
       cachedSecret[cacheKey] = signingKey
       cacheQueue.push(cacheKey)

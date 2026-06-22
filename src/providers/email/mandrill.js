@@ -36,15 +36,17 @@ export default class EmailMandrillProvider {
             ...(replyTo ? { 'Reply-To': replyTo } : null),
             ...headers
           },
-          ...(attachments && attachments.length ? {
-            attachments: attachments.map(({ contentType, filename, content }) => {
-              return {
-                type: contentType,
-                name: filename,
-                content: (typeof content === 'string' ? Buffer.from(content) : content).toString('base64')
+          ...(attachments && attachments.length
+            ? {
+                attachments: attachments.map(({ contentType, filename, content }) => {
+                  return {
+                    type: contentType,
+                    name: filename,
+                    content: (typeof content === 'string' ? Buffer.from(content) : content).toString('base64')
+                  }
+                })
               }
-            })
-          } : null),
+            : null),
           metadata: {
             id,
             userId

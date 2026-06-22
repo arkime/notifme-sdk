@@ -105,38 +105,38 @@ export default class NotifmeSdk {
       channels: rest.useNotificationCatcher
         ? NotificationCatcherProvider.getConfig(Object.keys(CHANNELS))
         : {
-          ...channels,
-          email: {
-            providers: [],
-            multiProviderStrategy: 'fallback',
-            ...(channels ? channels.email : null)
-          },
-          push: {
-            providers: [],
-            multiProviderStrategy: 'fallback',
-            ...(channels ? channels.push : null)
-          },
-          sms: {
-            providers: [],
-            multiProviderStrategy: 'fallback',
-            ...(channels ? channels.sms : null)
-          },
-          voice: {
-            providers: [],
-            multiProviderStrategy: 'fallback',
-            ...(channels ? channels.voice : null)
-          },
-          webpush: {
-            providers: [],
-            multiProviderStrategy: 'fallback',
-            ...(channels ? channels.webpush : null)
-          },
-          slack: {
-            providers: [],
-            multiProviderStrategy: 'fallback',
-            ...(channels ? channels.slack : null)
+            ...channels,
+            email: {
+              providers: [],
+              multiProviderStrategy: 'fallback',
+              ...(channels ? channels.email : null)
+            },
+            push: {
+              providers: [],
+              multiProviderStrategy: 'fallback',
+              ...(channels ? channels.push : null)
+            },
+            sms: {
+              providers: [],
+              multiProviderStrategy: 'fallback',
+              ...(channels ? channels.sms : null)
+            },
+            voice: {
+              providers: [],
+              multiProviderStrategy: 'fallback',
+              ...(channels ? channels.voice : null)
+            },
+            webpush: {
+              providers: [],
+              multiProviderStrategy: 'fallback',
+              ...(channels ? channels.webpush : null)
+            },
+            slack: {
+              providers: [],
+              multiProviderStrategy: 'fallback',
+              ...(channels ? channels.slack : null)
+            }
           }
-        }
     }
   }
 

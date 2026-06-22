@@ -38,14 +38,16 @@ export default class EmailSendGridProvider {
         ],
         headers,
         custom_args: { id: generatedId, userId },
-        ...(attachments && attachments.length > 0 ? {
-          attachments: attachments.map(({ contentType, filename, content }) =>
-            ({
-              type: contentType,
-              filename,
-              content: (typeof content === 'string' ? Buffer.from(content) : content).toString('base64')
-            }))
-        } : null)
+        ...(attachments && attachments.length > 0
+          ? {
+              attachments: attachments.map(({ contentType, filename, content }) =>
+                ({
+                  type: contentType,
+                  filename,
+                  content: (typeof content === 'string' ? Buffer.from(content) : content).toString('base64')
+                }))
+            }
+          : null)
       })
     })
 

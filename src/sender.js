@@ -72,7 +72,7 @@ export default class Sender implements SenderType {
             ...await this.senders[channel]({ ...request.metadata, ...request[channel] })
           }
         } catch (error) {
-          return { channel, success: false, error: error, providerId: error.providerId }
+          return { channel, success: false, error, providerId: error.providerId }
         }
       }))
   }

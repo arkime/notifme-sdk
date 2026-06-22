@@ -35,11 +35,15 @@ export default class SmsOvhProvider {
       message: text,
       receivers: [to],
       charset: 'UTF-8',
-      class: messageClass === 0 ? 'flash'
-        : (messageClass === 1 ? 'phoneDisplay'
-          : (messageClass === 2 ? 'sim'
-            : (messageClass === 3 ? 'toolkit'
-              : null))),
+      class: messageClass === 0
+        ? 'flash'
+        : (messageClass === 1
+            ? 'phoneDisplay'
+            : (messageClass === 2
+                ? 'sim'
+                : (messageClass === 3
+                    ? 'toolkit'
+                    : null))),
       noStopClause: type === 'transactional',
       validityPeriod: ttl
     })

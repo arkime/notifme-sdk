@@ -1,6 +1,6 @@
 {
   "name": "arkime-notifme-sdk",
-  "version": "1.11.10",
+  "version": "1.11.11",
   "description": "Unified notification SDK (emails, SMS, webpushes...) for Node.js",
   "main": "lib/index.js",
   "repository": "https://github.com/arkime/notifme-sdk",
@@ -10,49 +10,43 @@
     "build": "yarn run clean && babel src --out-dir lib && yarn run build-dot-flow",
     "build-dot-flow": "grep -rwl './src' -e 'export type' | while read filepath; do cp $filepath `echo $filepath | sed 's/\\/src\\//\\/lib\\//g'`.flow; done",
     "clean": "rm -rf lib/ coverage/",
-    "demo": "notification-catcher & babel-node examples/with-notification-catcher.js && printf '\n>>> Please visit http://localhost:1080 <<<\n\n'",
-    "dev": "nodemon -e js -r babel-register examples/with-notification-catcher.js",
     "lint": "yarn run flow && standard",
     "lint-fix": "standard --fix",
-    "run-catcher": "notification-catcher",
     "prepublish": "yarn run build",
-    "size": "echo 'Notif.me build size:' && du -hs lib/ && cost-of-modules --yarn",
     "test": "yarn run lint && yarn run testonly",
     "testonly": "jest"
   },
   "dependencies": {
-    "form-data": "4.0.4",
+    "form-data": "4.0.6",
     "https-proxy-agent": "5.0.0",
     "node-fetch": "2.6.7",
-    "nodemailer": "8.0.5",
+    "nodemailer": "9.0.1",
     "web-push": "^3.6.7",
     "winston": "3.3.3"
   },
   "devDependencies": {
-    "@babel/cli": "7.23.0",
-    "@babel/core": "7.23.0",
+    "@babel/cli": "7.29.7",
+    "@babel/core": "7.29.7",
     "@babel/eslint-parser": "^7.17.0",
-    "@babel/node": "7.22.19",
+    "@babel/node": "7.29.7",
     "@babel/preset-env": "^7.12.17",
-    "@babel/preset-flow": "7.22.15",
-    "@babel/preset-typescript": "7.23.0",
+    "@babel/preset-flow": "7.29.7",
+    "@babel/preset-typescript": "7.29.7",
     "@typescript-eslint/parser": "6.7.4",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^28.1.3",
-    "cost-of-modules": "1.0.1",
     "eslint": "^8.57.1",
     "flow-bin": "0.217.2",
     "jest": "^28.1.3",
     "nodemon": "^3.1.14",
-    "notification-catcher": "1.2.1",
     "regenerator-runtime": "0.13.7",
-    "standard": "14.3.4"
+    "standard": "17.1.2"
   },
   "files": [
     "lib"
   ],
   "standard": {
-    "parser": "babel-eslint",
+    "parser": "@babel/eslint-parser",
     "ignore": [
       "**/node_modules/**",
       "**/lib/**",
