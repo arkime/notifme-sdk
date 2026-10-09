@@ -40,6 +40,7 @@ test('No-Fallback strategy should call first provider and throw error if it fail
   } catch (e) {
     error = e
   }
+  // $FlowFixMe[method-unbinding]
   expect(logger.warn).toBeCalledWith('sms-provider-1', new Error('error provider 1'))
   expect(error).toEqual(new Error('error provider 1'))
 })

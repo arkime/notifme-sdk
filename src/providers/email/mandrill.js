@@ -33,6 +33,7 @@ export default class EmailMandrillProvider {
           text,
           html,
           headers: {
+            // $FlowFixMe[exponential-spread]
             ...(replyTo ? { 'Reply-To': replyTo } : null),
             ...headers
           },

@@ -46,7 +46,7 @@ export default class Sender implements SenderType {
   async send (request: NotificationRequestType): Promise<NotificationStatusType> {
     const resultsByChannel = await this.sendOnEachChannel(request)
 
-    const result = resultsByChannel.reduce((acc, { success, channel, providerId, ...rest }) => ({
+    const result = resultsByChannel.reduce((acc: Object, { success, channel, providerId, ...rest }) => ({
       ...acc,
       channels: {
         ...(acc.channels || null),
@@ -66,6 +66,7 @@ export default class Sender implements SenderType {
       .filter((channel) => this.channels.includes(channel))
       .map(async (channel: any) => {
         try {
+          // $FlowFixMe[cannot-spread-inexact]
           return {
             success: true,
             channel,

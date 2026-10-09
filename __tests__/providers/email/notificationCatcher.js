@@ -3,9 +3,9 @@
 import NotifmeSdk from '../../../src'
 
 const mockSend = jest.fn()
-jest.mock('../../../src/providers/email/smtp', () => () => ({
+jest.mock('../../../src/providers/email/smtp', () => jest.fn(() => ({
   send: mockSend
-}))
+})))
 
 const sdk = new NotifmeSdk({
   useNotificationCatcher: true
@@ -40,7 +40,7 @@ test('email notification catcher provider should customize requests.', async () 
   await sdk.send({
     email: {
       ...request.email,
-      customize: async (provider, request) => ({ ...request, subject: 'Hi John!' })
+      customize: async (provider: string, request: any) => ({ ...request, subject: 'Hi John!' })
     }
   })
   const { to, from, html, text, replyTo } = request.email

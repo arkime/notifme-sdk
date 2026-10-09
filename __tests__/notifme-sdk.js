@@ -11,6 +11,7 @@ test('NotifmeSdk.send should call internal sender send method.', () => {
     sms: { from: 'Notifme', to: '+15000000001', text: 'Hello John! How are you?' }
   }
   sdk.send(request)
+  // $FlowFixMe[method-unbinding]
   expect(sdk.sender.send).toBeCalledWith(request)
 })
 

@@ -98,7 +98,7 @@ export default class NotifmeSdk {
     )
   }
 
-  mergeWithDefaultConfig ({ channels, ...rest }: OptionsType) {
+  mergeWithDefaultConfig ({ channels, ...rest }: OptionsType): Object {
     return {
       useNotificationCatcher: false,
       ...rest,

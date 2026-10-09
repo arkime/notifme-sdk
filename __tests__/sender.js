@@ -24,6 +24,7 @@ const strategies = {
   webpush: strategyNoFallback
 }
 
+// $FlowFixMe[incompatible-call]
 const sender = new Sender(['email', 'sms', 'voice', 'push', 'webpush'], providers, strategies)
 
 test('Sender should send all notifications.', async () => {
@@ -39,9 +40,13 @@ test('Sender should send all notifications.', async () => {
 
   const result = await sender.send(request)
   expect(providers.email[0].send).toBeCalledWith({ ...metadata, ...request.email })
+  // $FlowFixMe[method-unbinding]
   expect(logger.warn).toBeCalledWith('No provider registered for channel "push". Using logger.')
+  // $FlowFixMe[method-unbinding]
   expect(logger.info).toBeCalledWith('[PUSH] Sent by "push-logger-provider":')
+  // $FlowFixMe[method-unbinding]
   expect(logger.info).toBeCalledWith({ id: '24', registrationToken: 'xxxxx', title: 'Hi John', body: 'Hello John! How are you?' })
+  // $FlowFixMe[method-unbinding]
   expect(logger.warn).toBeCalledWith('webpush-provider', new Error('webpush test error'))
   expect(result).toEqual({
     status: 'error',

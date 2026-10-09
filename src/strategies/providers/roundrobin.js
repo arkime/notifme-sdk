@@ -4,7 +4,7 @@ import strategyFallback from './fallback'
 // Types
 import type { StrategyType } from './index'
 
-function rotate<T> (arr: T[], forward): T[] { // /!\ mute array, the mutation is "the state"
+function rotate<T> (arr: T[], forward: boolean): T[] { // /!\ mute array, the mutation is "the state"
   if (forward) {
     arr.push(arr.shift())
   } else {

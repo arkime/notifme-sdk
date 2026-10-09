@@ -3,9 +3,9 @@
 import NotifmeSdk from '../../../src'
 
 const mockSend = jest.fn()
-jest.mock('../../../src/providers/email/smtp', () => () => ({
+jest.mock('../../../src/providers/email/smtp', () => jest.fn(() => ({
   send: mockSend
-}))
+})))
 
 const sdk = new NotifmeSdk({
   useNotificationCatcher: true
@@ -39,7 +39,7 @@ test('voice notification catcher provider should customize requests.', async () 
   await sdk.send({
     voice: {
       ...request.voice,
-      customize: async (provider, request) => ({ ...request, url: 'url...' })
+      customize: async (provider: string, request: any) => ({ ...request, url: 'url...' })
     }
   })
   expect(mockSend).lastCalledWith({

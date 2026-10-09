@@ -3,9 +3,9 @@
 import NotifmeSdk from '../../../src'
 
 const mockSend = jest.fn()
-jest.mock('../../../src/providers/email/smtp', () => () => ({
+jest.mock('../../../src/providers/email/smtp', () => jest.fn(() => ({
   send: mockSend
-}))
+})))
 
 const sdk = new NotifmeSdk({
   useNotificationCatcher: true
@@ -39,7 +39,7 @@ test('sms notification catcher provider should use SMTP provider (long message).
   const result = await sdk.send({
     sms: {
       ...request.sms,
-      customize: async (provider, request) => ({ ...request, text: 'very very very very very very very very long' })
+      customize: async (provider: string, request: any) => ({ ...request, text: 'very very very very very very very very long' })
     }
   })
   expect(mockSend).lastCalledWith({

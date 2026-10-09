@@ -26,10 +26,12 @@ export default class EmailSendGridProvider {
       body: JSON.stringify({
         personalizations: [{
           to: [{ email: to }],
+          // $FlowFixMe[exponential-spread]
           ...(cc && cc.length > 0 ? { cc: cc.map((email) => ({ email })) } : null),
           ...(bcc && bcc.length > 0 ? { bcc: bcc.map((email) => ({ email })) } : null)
         }],
         from: { email: from },
+        // $FlowFixMe[exponential-spread]
         ...(replyTo ? { reply_to: { email: replyTo } } : null),
         subject,
         content: [

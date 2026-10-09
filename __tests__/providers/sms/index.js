@@ -33,10 +33,10 @@ test('sms unknown provider.', async () => {
 })
 
 test('sms custom provider.', async () => {
-  // $FlowIgnore
   expect(() => (new NotifmeSdk({
     channels: {
       sms: {
+        // $FlowFixMe[incompatible-call]
         providers: [{
           type: 'unknown'
         }]

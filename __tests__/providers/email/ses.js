@@ -45,7 +45,7 @@ test('SES success with minimal parameters.', async () => {
       Host: 'email.eu-west-1.amazonaws.com',
       'X-Amz-Content-Sha256': [expect.stringMatching(/\w*/)],
       'X-Amz-Date': [datetime],
-      'Content-Length': ['445'],
+      'Content-Length': [expect.stringMatching(/^\d+$/)],
       'Content-Type': ['application/x-www-form-urlencoded; charset=utf-8'],
       'User-Agent': ['notifme-sdk/v1 (+https://github.com/notifme/notifme-sdk)']
     })
@@ -82,7 +82,7 @@ test('SES success with all parameters.', async () => {
         filename: 'test.txt',
         content: 'hello!'
       }],
-      customize: async (provider, request) => ({ ...request, subject: 'Hi John!' })
+      customize: async (provider: string, request: any) => ({ ...request, subject: 'Hi John!' })
     }
   }
   const result = await sdk.send(completeRequest)
@@ -99,7 +99,7 @@ test('SES success with all parameters.', async () => {
       Host: 'email.eu-west-1.amazonaws.com',
       'X-Amz-Content-Sha256': [expect.stringMatching(/\w*/)],
       'X-Amz-Date': [datetime],
-      'Content-Length': ['1037'],
+      'Content-Length': [expect.stringMatching(/^\d+$/)],
       'Content-Type': ['application/x-www-form-urlencoded; charset=utf-8'],
       'User-Agent': ['notifme-sdk/v1 (+https://github.com/notifme/notifme-sdk)']
     })

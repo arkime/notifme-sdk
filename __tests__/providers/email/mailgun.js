@@ -74,7 +74,7 @@ test('Mailgun success with all parameters.', async () => {
         filename: 'test.txt',
         content: 'hello!'
       }],
-      customize: async (provider, request) => ({ ...request, subject: 'Hi John!' })
+      customize: async (provider: string, request: any) => ({ ...request, subject: 'Hi John!' })
     }
   }
   const result = await sdk.send(completeRequest)

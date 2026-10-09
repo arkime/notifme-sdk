@@ -8,7 +8,7 @@ export default class NotificationCatcherProvider {
   id: string
   provider: EmailSmtpProvider
 
-  static getConfig (channels: ChannelType[]) {
+  static getConfig (channels: ChannelType[]): Object {
     return channels.reduce((config, channel: any) => ({
       ...config,
       [channel]: {

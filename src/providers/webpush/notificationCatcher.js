@@ -14,6 +14,7 @@ export default class WebpushNotificationCatcherProvider extends NotificationCatc
       headers: {
         'X-type': 'webpush',
         'X-to': `[webpush] ${rest.userId ? rest.userId : ''}`,
+        // $FlowFixMe[cannot-spread-inexact]
         'X-payload': JSON.stringify({ title, ...rest })
       }
     })

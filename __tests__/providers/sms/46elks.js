@@ -59,7 +59,7 @@ test('46Elks shouls customize requests.', async () => {
   await sdk.send({
     sms: {
       ...request.sms,
-      customize: async (provider, request) => ({ ...request, text: 'Hello John! How are you??' })
+      customize: async (provider: string, request: any) => ({ ...request, text: 'Hello John! How are you??' })
     }
   })
   expect(mockHttp).lastCalledWith(expect.objectContaining({

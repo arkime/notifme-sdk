@@ -60,7 +60,7 @@ test('Twilio success with all parameters.', async () => {
       nature: 'marketing',
       ttl: 3600,
       messageClass: 1,
-      customize: async (provider, request) => ({ ...request, text: 'Hello John! How are you??' })
+      customize: async (provider: string, request: any) => ({ ...request, text: 'Hello John! How are you??' })
     }
   }
   const result = await sdk.send(completeRequest)
