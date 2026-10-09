@@ -12,3 +12,5 @@ flow
 
 [options]
 exact_by_default=false
+# flow doesn't read package.json "exports"; nodemailer 10 maps lib/* to dist/cjs/*
+module.name_mapper='^nodemailer/lib/\(.*\)$' -> '<PROJECT_ROOT>/node_modules/nodemailer/dist/cjs/\1/index.js'
