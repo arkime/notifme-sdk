@@ -11,4 +11,4 @@ class Registry {
   }
 }
 
-export default new Registry()
+export default (new Registry(): Registry)

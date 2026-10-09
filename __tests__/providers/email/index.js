@@ -38,10 +38,10 @@ test('email unknown provider.', async () => {
 })
 
 test('email custom provider.', async () => {
-  // $FlowIgnore
   expect(() => (new NotifmeSdk({
     channels: {
       email: {
+        // $FlowFixMe[incompatible-call]
         providers: [{
           type: 'unknown'
         }]

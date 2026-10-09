@@ -44,10 +44,10 @@ test('webpush unknown provider.', async () => {
 })
 
 test('webpush custom provider.', async () => {
-  // $FlowIgnore
   expect(() => (new NotifmeSdk({
     channels: {
       webpush: {
+        // $FlowFixMe[incompatible-call]
         providers: [{
           type: 'unknown'
         }]

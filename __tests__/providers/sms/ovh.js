@@ -92,7 +92,7 @@ test('Ovh should customize requests.', async () => {
     sms: {
       ...request.sms,
       text: '',
-      customize: async (provider, request) => ({ ...request, text: 'Hello John! How are you??' })
+      customize: async (provider: string, request: any) => ({ ...request, text: 'Hello John! How are you??' })
     }
   })
   expect(mockHttp.body).toEqual(

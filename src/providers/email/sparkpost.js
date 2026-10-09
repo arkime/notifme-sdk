@@ -33,6 +33,7 @@ export default class EmailSparkPostProvider {
           text,
           headers: {
             ...headers,
+            // $FlowFixMe[exponential-spread]
             ...(cc && cc.length > 0 ? { CC: cc.join(',') } : null)
           },
           attachments: (attachments || []).map(({ contentType, filename, content }) =>

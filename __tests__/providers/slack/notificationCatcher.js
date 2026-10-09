@@ -3,9 +3,9 @@
 import NotifmeSdk from '../../../src'
 
 const mockSend = jest.fn()
-jest.mock('../../../src/providers/email/smtp', () => () => ({
+jest.mock('../../../src/providers/email/smtp', () => jest.fn(() => ({
   send: mockSend
-}))
+})))
 
 const sdk = new NotifmeSdk({
   useNotificationCatcher: true
@@ -63,7 +63,7 @@ test('slack customized success.', async () => {
   await sdk.send({
     slack: {
       text: '',
-      customize: async (provider, request) => ({ text: 'Hello John! How are you?' })
+      customize: async (provider: string, request: any) => ({ text: 'Hello John! How are you?' })
     }
   })
   expect(mockSend).lastCalledWith({

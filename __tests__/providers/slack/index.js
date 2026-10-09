@@ -35,10 +35,10 @@ test('slack unknown provider.', async () => {
 })
 
 test('slack custom provider.', async () => {
-  // $FlowIgnore
   expect(() => (new NotifmeSdk({
     channels: {
       slack: {
+        // $FlowFixMe[incompatible-call]
         providers: [{
           type: 'unknown'
         }]

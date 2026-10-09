@@ -47,7 +47,7 @@ test('Slack customized success.', async () => {
   await sdk.send({
     slack: {
       text: '',
-      customize: async (provider, request) => ({ text: 'Hello John! How are you?' })
+      customize: async (provider: string, request: any) => ({ text: 'Hello John! How are you?' })
     }
   })
   expect(mockHttp.body).toContain(

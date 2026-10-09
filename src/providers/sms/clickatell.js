@@ -29,6 +29,7 @@ export default class SmsClickatellProvider {
         to: [to],
         content: text,
         charset: type === 'unicode' ? 'UCS2-BE' : 'UTF-8',
+        // $FlowFixMe[exponential-spread]
         ...(ttl ? { validityPeriod: ttl } : null),
         ...(id ? { clientMessageId: id } : null)
       })

@@ -3,9 +3,9 @@
 import NotifmeSdk from '../../../src'
 
 const mockSend = jest.fn()
-jest.mock('../../../src/providers/email/smtp', () => () => ({
+jest.mock('../../../src/providers/email/smtp', () => jest.fn(() => ({
   send: mockSend
-}))
+})))
 
 const sdk = new NotifmeSdk({
   useNotificationCatcher: true
@@ -71,7 +71,7 @@ test('webpush notification catcher provider should customize requests.', async (
     metadata: { userId: '24' },
     webpush: {
       ...request.webpush,
-      customize: async (provider, request) => ({ ...request, title: 'Hi John!' })
+      customize: async (provider: string, request: any) => ({ ...request, title: 'Hi John!' })
     }
   })
   expect(mockSend).lastCalledWith({

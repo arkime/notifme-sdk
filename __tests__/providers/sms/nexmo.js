@@ -34,7 +34,7 @@ test('Nexmo success with minimal parameters.', async () => {
       from: 'Notifme',
       to: '+15000000001',
       text: 'Hello John! How are you?',
-      customize: async (provider, request) => ({ ...request, text: 'Hello John! How are you??' })
+      customize: async (provider: string, request: any) => ({ ...request, text: 'Hello John! How are you??' })
     }
   })
   expect(mockHttp).lastCalledWith(expect.objectContaining({

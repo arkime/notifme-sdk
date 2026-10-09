@@ -12,7 +12,7 @@ export default class SmsOvhProvider {
     this.credentials = { appKey, appSecret, consumerKey, account, host }
   }
 
-  signRequest (httpMethod: string, url: string, body: string, timestamp: number) {
+  signRequest (httpMethod: string, url: string, body: string, timestamp: number): string {
     const { appSecret, consumerKey } = this.credentials
     const signature = [appSecret, consumerKey, httpMethod, url, body, timestamp]
     return '$1$' + crypto.createHash('sha1').update(signature.join('+')).digest('hex')

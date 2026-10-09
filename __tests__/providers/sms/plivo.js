@@ -58,7 +58,7 @@ test('Plivo success with all parameters.', async () => {
       from: 'Notifme',
       to: '+15000000001',
       text: '',
-      customize: async (provider, request) => ({ ...request, text: 'Hello John! How are you??' })
+      customize: async (provider: string, request: any) => ({ ...request, text: 'Hello John! How are you??' })
     }
   })
   expect(mockHttp).lastCalledWith(expect.objectContaining({

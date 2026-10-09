@@ -90,7 +90,7 @@ test('GCM should customize requests.', async () => {
   await sdk.send({
     webpush: {
       ...request.webpush,
-      customize: async (provider, request) => ({ ...request, title: 'Hi John!' })
+      customize: async (provider: string, request: any) => ({ ...request, title: 'Hi John!' })
     }
   })
   expect(webpush.sendNotification).lastCalledWith(

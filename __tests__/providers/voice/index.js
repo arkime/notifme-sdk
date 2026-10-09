@@ -33,10 +33,10 @@ test('voice unknown provider.', async () => {
 })
 
 test('voice custom provider.', async () => {
-  // $FlowIgnore
   expect(() => (new NotifmeSdk({
     channels: {
       voice: {
+        // $FlowFixMe[incompatible-call]
         providers: [{
           type: 'unknown'
         }]

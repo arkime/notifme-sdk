@@ -4,7 +4,7 @@ import winston from 'winston'
 export type LevelType = 'error' | 'warn' | 'info'
 
 class Logger {
-  innerLogger: winston
+  innerLogger: any
 
   constructor () {
     this.innerLogger = winston.createLogger()
@@ -40,4 +40,4 @@ class Logger {
   }
 }
 
-export default new Logger()
+export default (new Logger(): Logger)

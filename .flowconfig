@@ -1,7 +1,9 @@
 [ignore]
 <PROJECT_ROOT>/lib/.*
 <PROJECT_ROOT>/package.json
-<PROJECT_ROOT>/node_modules
+
+[untyped]
+<PROJECT_ROOT>/node_modules/.*
 
 [include]
 
@@ -9,3 +11,4 @@
 flow
 
 [options]
+exact_by_default=false
